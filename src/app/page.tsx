@@ -2,24 +2,29 @@
 
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import FilterControls from './FilterControls'
-import Legend from './Legend'
-import Statistics from './Statistics'
-import { getGeoJsonData, getDiseaseData, getDiseases, getTimeframes, getStates } from '../lib/data'
+import FilterControls from '@/components/FilterControls'
+import Legend from '@/components/Legend'
+import Statistics from '@/components/Statistics'
+import MapComparison from '@/components/MapComparison'
+import { getGeoJsonData, getDiseaseData, getDiseases, getTimeframes, getStates } from '@/lib/data'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-const EnhancedMap = dynamic(() => import('./EnhancedMap'), {
+interface GeoJsonData {
+  type: string;
+  features: {
+    type: string;
+    properties: { name: string; };
+    geometry: { type: string; coordinates: number[][][]; };
+  }[];
+}
+
+const EnhancedMap = dynamic(() => import('@/components/EnhancedMap'), {
   ssr: false,
   loading: () => <p>Loading map...</p>,
 })
 
-const MapComparison = dynamic(() => import('./MapComparison'), {
-  ssr: false,
-  loading: () => <p>Loading comparison...</p>,
-})
-
-export default function DashboardContent() {
-  const [geoJsonData, setGeoJsonData] = useState(null)
+export default function DiseaseDashboard() {
+  const [geoJsonData, setGeoJsonData] = useState<GeoJsonData | null>(null)
   const [diseasesData, setDiseasesData] = useState<Record<string, Record<string, number>>>({})
   const [currentDisease, setCurrentDisease] = useState('')
   const [currentTimeframe, setCurrentTimeframe] = useState('')
@@ -94,7 +99,6 @@ export default function DashboardContent() {
                 diseaseData={diseasesData[currentDisease] || {}}
                 disease={currentDisease}
                 timeframe={currentTimeframe}
-                state={currentState}
               />
             </div>
           </div>
@@ -110,4 +114,4 @@ export default function DashboardContent() {
       </Tabs>
     </div>
   )
-} 
+}
