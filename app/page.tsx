@@ -6,7 +6,7 @@ import { Filters } from '@/components/filters'
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-slate-900">
+    <div className="min-h-screen bg-red-50 dark:bg-slate-900">
       <div className="container mx-auto p-4 space-y-4">
         <DashboardHeader />
         <div className="flex gap-4">
