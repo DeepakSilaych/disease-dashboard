@@ -1,49 +1,24 @@
-# Disease Dashboard
-
-An interactive web application for visualizing disease data across different regions of India. Built with Next.js and React.
-
-## Features
-
-- Interactive map visualization of disease data
-- Filter controls for diseases and timeframes
-- State-wise disease statistics
-- Comparative analysis tools
-- Dynamic data updates
-- Responsive design
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, install the dependencies:
-
-```bash
-npm install
-# or
-yarn install
-```
-
-Then, run the development server:
+First, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the dashboard.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Tech Stack
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- Next.js 14
-- React with TypeScript
-- Dynamic map visualization
-- Tailwind CSS for styling
-- Shadcn UI components
-
-## Project Structure
-
-- `/src/app` - Main application pages
-- `/src/components` - Reusable React components
-- `/src/lib` - Utility functions and data handlers
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
